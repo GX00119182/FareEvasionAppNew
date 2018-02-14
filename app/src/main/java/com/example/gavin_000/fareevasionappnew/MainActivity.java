@@ -11,14 +11,17 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.gavin_000.fareevasionappnew.models.Offender;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +57,29 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+        //--------------DB STUFF HERE-------------------------------
+
+        DBHandler db = new DBHandler(this);
+
+         // Inserting Offenders
+        System.out.println("Insert: "+ "Inserting offender  now..");
+        db.addOffender(new Offender(1,"Sean","McKenna","24 Richmond Avenue, Swords, Dublin", "0871234567", "seanMcer@gmail.com", "Kylemore"));
+        db.addOffender(new Offender(2,"Shauna","McGrory","15 Richmond Avenue, Swords, Dublin", "0874434567", "shaunaMcG@gmail.com", "Abbey Street"));
+
+        // Reading all offenders
+        System.out.println("Reading: "+ "Reading offenders");
+        List<Offender> offenders = db.getAllOffenders();
+
+        for (Offender offender1 : offenders)
+        {
+            String log = "Id: " + offender1.getId() + " , FirstName: " + offender1.getFname() +  " , LastName: " + offender1.getLname() +
+                    " ,Address: " + offender1.getAddress() + ", Phone Number: " + offender1.getPhoneNo() + ", Email: " + offender1.getEmail()
+                    + ", Stop Name: " + offender1.getStopName();
+            // Writing offenders to log
+            System.out.println("Offender:" + log);
+        }
+        //----------------------------------------------------------
     }
 
     private void dispatchTakenPictureIntent()
@@ -98,6 +124,9 @@ public class MainActivity extends AppCompatActivity {
             super.onRequestPermissionsResult(requestCode, permissions,grantResults);
         }
     }
+
+
+
 
 
 }
