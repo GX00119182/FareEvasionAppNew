@@ -18,7 +18,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="First Name"
+        android:hint="First Name"
         android:textColor="#D0D3D4"
         app:layout_constraintEnd_toEndOf="@+id/editLastName"
         app:layout_constraintHorizontal_bias="1.0"
@@ -34,33 +34,16 @@
         android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Last Name"
+        android:hint="Last Name"
         android:textColor="#D0D3D4"
-        app:layout_constraintEnd_toEndOf="@+id/edit"
+        app:layout_constraintEnd_toEndOf="@+id/editAddress"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
 
 
     <EditText
-        android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="House Number"
-        android:textColor="#D0D3D4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editLastName" />
-
-
-    <EditText
-        android:id="@+id/editStreet"
+        android:id="@+id/editAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -68,46 +51,12 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:text="Street Name"
+        android:hint="Address"
         android:textColor="#D0D3D4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit" />
-
-
-    <EditText
-        android:id="@+id/County"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="County"
-        android:textColor="#D0D3D4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editStreet" />
-
-
-    <EditText
-        android:id="@+id/editCountry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Country"
-        android:textColor="#D0D3D4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/County" />
+        app:layout_constraintTop_toBottomOf="@+id/editLastName" />
 
 
     <EditText
@@ -119,24 +68,84 @@
         android:layout_marginTop="52dp"
         android:ems="10"
         android:inputType="date"
-        android:text="Date of Birth"
+        android:hint="Date of Birth"
         android:textColor="#D0D3D4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editCountry" />
+        app:layout_constraintTop_toTopOf="@+id/editAddress" />
+
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Phone Number"
+        android:textColor="#D0D3D4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editDateOfBirth" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Email Address"
+        android:textColor="#D0D3D4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editPhone" />
+
+    <EditText
+        android:id="@+id/editStopName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Stop Name"
+        android:textColor="#D0D3D4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editEmail" />
 
     <Button
         android:id="@+id/tvOpenCamera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:text="Take Picture"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDateOfBirth" />
+        app:layout_constraintTop_toBottomOf="@+id/editStopName" />
+
+    <Button
+        android:id="@+id/subButton"
+        android:layout_width="161dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:hint="Process Offender"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editStopName" />
 
     <ScrollView
         android:layout_width="120dp"
@@ -158,6 +167,13 @@
             app:layout_constraintVertical_bias="0.948"
             app:srcCompat="@drawable/ic_launcher_background" />
     </ScrollView>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 
 </android.support.constraint.ConstraintLayout>

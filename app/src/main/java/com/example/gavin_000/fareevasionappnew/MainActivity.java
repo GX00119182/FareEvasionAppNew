@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,18 +27,37 @@ import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    //form input fields
     TextView tvOpenCamera;
+    EditText editTextFName;
+    EditText editTextLName;
+    EditText editTextAddress;
+    EditText editTextDOB;
+    EditText editTextPhone;
+    EditText editTextEmail;
+    EditText editTextStopName;
+    Button subButton;
+    //offenders details
+    String fName;
+    String lName;
+    String address;
+    String dob;
+    String phone;
+    String email;
+    String stopName;
 
     private final int CAMERA_RESULT = 101;
-    //ImageView imageViewPic;
+    final DBHandler db = new DBHandler(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
         tvOpenCamera = (TextView)findViewById(R.id.tvOpenCamera);
-        //imageViewPic = (ImageView)findViewById(R.id.imageViewPic);
         tvOpenCamera.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -57,6 +79,40 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        editTextFName = (EditText) findViewById(R.id.editFirstName);
+        editTextLName = (EditText) findViewById(R.id.editLastName);
+        editTextAddress = (EditText) findViewById(R.id.editAddress);
+        editTextDOB = (EditText) findViewById(R.id.editDateOfBirth);
+        editTextPhone = (EditText) findViewById(R.id.editPhone);
+        editTextEmail = (EditText) findViewById(R.id.editEmail);
+        editTextStopName = (EditText) findViewById(R.id.editStopName);
+        subButton=(Button) findViewById(R.id.subButton);
+
+        fName = editTextFName.getText().toString();
+        lName = editTextLName.getText().toString();
+        address = editTextAddress.getText().toString();
+        dob = editTextDOB.getText().toString();
+        phone = editTextPhone.getText().toString();
+        email = editTextEmail.getText().toString();
+        stopName = editTextStopName.getText().toString();
+
+        subButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //db.openDB();
+
+                //INSERT
+                db.addOffender(new Offender(1, fName,lName,address,dob,phone,email,stopName));
+               // db.close();
+
+                db.getAllOffenders();
+                db.close();
+            }
+        });
+
+
 
         //--------------DB STUFF HERE-------------------------------
 
@@ -64,8 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
          // Inserting Offenders
         System.out.println("Insert: "+ "Inserting offender  now..");
-        db.addOffender(new Offender(1,"Sean","McKenna","24 Richmond Avenue, Swords, Dublin", "0871234567", "seanMcer@gmail.com", "Kylemore"));
-        db.addOffender(new Offender(2,"Shauna","McGrory","15 Richmond Avenue, Swords, Dublin", "0874434567", "shaunaMcG@gmail.com", "Abbey Street"));
+        db.addOffender(new Offender(1, fName,lName,address,dob,phone,email,stopName));
 
         // Reading all offenders
         System.out.println("Reading: "+ "Reading offenders");
@@ -74,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         for (Offender offender1 : offenders)
         {
             String log = "Id: " + offender1.getId() + " , FirstName: " + offender1.getFname() +  " , LastName: " + offender1.getLname() +
-                    " ,Address: " + offender1.getAddress() + ", Phone Number: " + offender1.getPhoneNo() + ", Email: " + offender1.getEmail()
+                    " ,Address: " + offender1.getAddress() + ", Date Of Birth: "+ offender1.getDateOfBirth() + ", Phone Number: " + offender1.getPhoneNo() + ", Email: " + offender1.getEmail()
                     + ", Stop Name: " + offender1.getStopName();
             // Writing offenders to log
             System.out.println("Offender:" + log);
@@ -100,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
             {
                 Bundle extras = data.getExtras();
                 Bitmap bitmap =  (Bitmap) extras.get("data");
-                //imageViewPic.setImageBitmap(bitmap);
             }
         }
 
@@ -124,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
             super.onRequestPermissionsResult(requestCode, permissions,grantResults);
         }
     }
+
 
 
 

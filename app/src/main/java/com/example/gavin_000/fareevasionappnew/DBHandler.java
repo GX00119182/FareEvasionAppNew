@@ -2,6 +2,7 @@ package com.example.gavin_000.fareevasionappnew;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +11,7 @@ import com.example.gavin_000.fareevasionappnew.models.Offender;
 
 import java.util.ArrayList;
 import java.util.List;
+//import java.sql.*;
 
 /**
  * Created by X00119182 on 14/02/2018.
@@ -29,6 +31,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_PHONE = "phone_number";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_STOPNAME = "stop_name";
+
+    DBHandler helper;
+    SQLiteDatabase db;
 
     public DBHandler(Context context)
     {
@@ -77,7 +82,7 @@ public class DBHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
         Offender offenderReadable = new Offender(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),
-                cursor.getString(5),cursor.getString(6));
+                cursor.getString(5),cursor.getString(6), cursor.getString(7));
         //return offender
         return offenderReadable;
     }
@@ -136,6 +141,27 @@ public class DBHandler extends SQLiteOpenHelper {
         db.delete(TABLE_OFFENDER, KEY_ID + " = ?",
                 new String[] { String.valueOf(offender.getId()) }); //delete row with ID value of x
         db.close();
+    }
+
+    // OPEN THE DB
+    public DBHandler openDB()
+    {
+        try
+        {
+            db=helper.getWritableDatabase();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return this;
+
+    }
+
+    //CLOSE THE DB
+    public void close()
+    {
+        helper.close();
     }
 
 

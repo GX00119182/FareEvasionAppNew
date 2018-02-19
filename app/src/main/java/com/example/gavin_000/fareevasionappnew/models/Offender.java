@@ -7,6 +7,7 @@ public class Offender {
     private String fname;
     private String lname;
     private String address;
+    private String dateOfBirth;
     private String phoneNo;
     private String email;
     private String stopName;
@@ -15,11 +16,12 @@ public class Offender {
     {
     }
 
-    public Offender(int id, String fname, String lname, String address, String phoneNo, String email, String stopName) {
+    public Offender(int id, String fname, String lname, String address, String dob, String phoneNo, String email, String stopName) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.address = address;
+        this.dateOfBirth = dob;
         this.phoneNo = phoneNo;
         this.email = email;
         this.stopName = stopName;
@@ -56,6 +58,10 @@ public class Offender {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getDateOfBirth() { return dateOfBirth; }
+
+    public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
 
     public String getPhoneNo() {
         return phoneNo;
