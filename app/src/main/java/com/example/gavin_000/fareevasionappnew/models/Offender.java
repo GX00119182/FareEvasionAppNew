@@ -1,9 +1,14 @@
 package com.example.gavin_000.fareevasionappnew.models;
+import com.google.firebase.database.IgnoreExtraProperties;
+import com.google.firebase.database.ServerValue;
+
+import java.util.Map;
+
 /**
  * Created by X00119182 on 14/02/2018.
  */
+@IgnoreExtraProperties
 public class Offender {
-    private int id;
     private String fname;
     private String lname;
     private String address;
@@ -11,13 +16,14 @@ public class Offender {
     private String phoneNo;
     private String email;
     private String stopName;
+    private Object time;
 
     public Offender()
     {
     }
 
-    public Offender(int id, String fname, String lname, String address, String dob, String phoneNo, String email, String stopName) {
-        this.id = id;
+    public Offender(String fname, String lname, String address, String dob, String phoneNo, String email, String stopName)
+    {
         this.fname = fname;
         this.lname = lname;
         this.address = address;
@@ -25,14 +31,7 @@ public class Offender {
         this.phoneNo = phoneNo;
         this.email = email;
         this.stopName = stopName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.time = ServerValue.TIMESTAMP;
     }
 
     public String getFname() {
@@ -85,5 +84,9 @@ public class Offender {
 
     public void setStopName(String stopName) {
         this.stopName = stopName;
+    }
+
+    public Object getTime() {
+        return time;
     }
 }
