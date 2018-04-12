@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "122862523366",
-    "firebase_url": "https://fareevasionwithdb.firebaseio.com",
-    "project_id": "fareevasionwithdb",
-    "storage_bucket": "fareevasionwithdb.appspot.com"
+    "project_number": "414187749736",
+    "firebase_url": "https://fareevasionappnew1.firebaseio.com",
+    "project_id": "fareevasionappnew1",
+    "storage_bucket": "fareevasionappnew1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:122862523366:android:d8d98e64e50c56d8",
+        "mobilesdk_app_id": "1:414187749736:android:d8d98e64e50c56d8",
         "android_client_info": {
           "package_name": "com.example.gavin_000.fareevasionappnew"
         }
       },
       "oauth_client": [
         {
-          "client_id": "122862523366-ianjs2tj3458ucs32hke3hfi6s86eq2s.apps.googleusercontent.com",
+          "client_id": "414187749736-qimgegar0029inqgk9da925cefqa68ot.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCF4jH0N2wAf4_GtMt0sFhtUPSkhnekirE"
+          "current_key": "AIzaSyAy7O9YqTB1tiFLkMXTBDU_j31Rr-r-nmo"
         }
       ],
       "services": {
