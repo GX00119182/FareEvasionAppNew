@@ -70,10 +70,32 @@ public class MainActivity extends AppCompatActivity {
                 String emailIn = editTextEmail.getText().toString();
                 String stopIn = editTextStopName.getText().toString();
 
-                // Check if offenderId already existed offenderId
-                if (TextUtils.isEmpty(offenderId)) {
+
+                if(firstName.equals("")){
+                    Toast.makeText(MainActivity.this, "First Name Required", Toast.LENGTH_SHORT).show();
+                }
+                else if(lastName.equals("")){
+                    Toast.makeText(MainActivity.this, "Last Name Required", Toast.LENGTH_SHORT).show();
+                }
+                else if(addressIn.equals("")){
+                    Toast.makeText(MainActivity.this, "Address Required", Toast.LENGTH_SHORT).show();
+                }
+                else if(dobIn.equals("")){
+                    Toast.makeText(MainActivity.this, "Date Of Birth Required", Toast.LENGTH_SHORT).show();
+                }
+                else if(phoneIn.equals("")){
+                    Toast.makeText(MainActivity.this, "Phone Number Required", Toast.LENGTH_SHORT).show();
+                }
+                else if(emailIn.equals("")){
+                    Toast.makeText(MainActivity.this, "Email Required", Toast.LENGTH_SHORT).show();
+                }
+                else if(stopIn.equals("")){
+                    Toast.makeText(MainActivity.this, "Stop Name Required", Toast.LENGTH_SHORT).show();
+                }
+                else if (TextUtils.isEmpty(offenderId)) {// Check if offenderId doesn't already existed offenderId
                     createOffender(firstName,lastName,addressIn,dobIn,phoneIn,emailIn,stopIn);
-                } else {
+                }
+                else {
                     Toast.makeText(getApplicationContext(), "Offender Already Exists", Toast.LENGTH_LONG).show(); //output message
                 }
             }
